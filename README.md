@@ -1,4 +1,3 @@
-# adventofcode24
+# adventofcode(AoC) 2024
 
-juste pour s'entrainer parceque c est drôle
-
+objectif que du C et du Ocaml
