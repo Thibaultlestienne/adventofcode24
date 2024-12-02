@@ -6,6 +6,9 @@ compilerJ0:
 compilerJ1:
 	gcc J1.c -o ex
 
+compilerJ2:
+	gcc J2.c -o ex
+
 # Règle pour nettoyer le programme
 nettoyer:
 	rm -f exe
