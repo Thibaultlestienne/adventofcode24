@@ -11,7 +11,7 @@ compilerJ2:
 
 # Règle pour nettoyer le programme
 nettoyer:
-	rm -f exe
+	rm -f ex
 
 # Permet de add commit et push avec un message par default
 partager : nettoyer
