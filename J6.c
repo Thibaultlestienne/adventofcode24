@@ -6,7 +6,9 @@
 #include <time.h>
 
 #define TAILLEMATRICE 200
-#define INFINI 20000// longeur de chemin a partir duquel un chemin eset considerer comme infini
+// Si infini  = (TAILLEMATRICE * TAILLEMATRICE * 4 +1) Alors il existe une case dans laquelle le personage est passee deux fois dans la meme direction
+// dans la pratique INFINI  = 2 * resultat de la question 1 suffit et ne fait pas exploser la pile d appel (empirique)
+#define INFINI 10000// longeur de chemin a partir duquel un chemin eset considerer comme infini
 
 int compterX(char matrice[TAILLEMATRICE][TAILLEMATRICE]){
     int retour = 0;
@@ -67,10 +69,10 @@ bool cheminInfini(char matrice[TAILLEMATRICE][TAILLEMATRICE] ,int x, int y, int 
 
     if (x+dx < 0 || y+dy<0 || matrice[x+dx][y+dy] == 'H'){return true ;}
     if ( matrice[x+dx][y+dy] == '#'){//tourner
-        if (dx == 1){return cheminInfini(matrice,x, y, 0 ,-1, couprestant -1);}
-        if (dx ==-1){return cheminInfini(matrice,x, y, 0 , 1, couprestant -1);}
-        if (dy == 1){return cheminInfini(matrice,x, y, 1 , 0, couprestant -1);}
-        if (dy ==-1){return cheminInfini(matrice,x, y,-1 , 0, couprestant -1);}
+        if (dx == 1){return cheminInfini(matrice,x, y, 0 ,-1, couprestant);}
+        if (dx ==-1){return cheminInfini(matrice,x, y, 0 , 1, couprestant);}
+        if (dy == 1){return cheminInfini(matrice,x, y, 1 , 0, couprestant);}
+        if (dy ==-1){return cheminInfini(matrice,x, y,-1 , 0, couprestant);}
     }
     else {return cheminInfini(matrice,x +dx, y+dy,dx,dy,couprestant -1);}
 
@@ -103,8 +105,9 @@ int etoile2(const char *nom_fichier) {
         matrice[taille][i] = 'H';
     }
 
-    for (int i = 0 ; i< TAILLEMATRICE;i++){
+    for (int i = 0 ; i< taille;i++){
         for (int j = 0 ; j< TAILLEMATRICE;j++){
+            if (matrice[i][j] == 'H'){break;}
             if (matrice[i][j] == '.'){
                 matrice[i][j] = '#';
                 if (!cheminInfini(matrice,depart_x, depart_y, -1,0,INFINI)){s++;}
