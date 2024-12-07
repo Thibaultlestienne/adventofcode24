@@ -21,6 +21,9 @@ compilerJ5:
 compilerJ6:
 	gcc J6.c -o ex
 
+compilerJ7:
+	gcc J7.c -o ex
+
 # Règle pour nettoyer le programme
 nettoyer:
 	rm -f ex
