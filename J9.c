@@ -79,18 +79,45 @@ long long int etoile1(const char *nom_fichier) {
 }
 
 
+int espacelibre(int * memoire,int tailleMemoire){
+    int retour = 0;
+    while(retour< tailleMemoire && memoire[retour] == -1 ){retour++;}
+    return retour;
+}
+
+int chercherespacelibre(int * memoire,int tailleMemoire,int taille){
+    int retour = 0;
+    while(retour<tailleMemoire && espacelibre(memoire+retour,tailleMemoire) < taille){retour++;}
+    if (retour == tailleMemoire){return -1;}
+    return retour;
+}
+
+int tailledernierbloc(int * memoire, int taille, int ID){
+    int retour = 0;
+    while(retour>=0 && taille && memoire[taille-(retour+1)] == ID ){retour++;}
+    return retour;
+}
+
+
+
 void compresser2(int * memoire,int taille){
     if (taille==0){return;}
-    if (memoire[0] != -1){
-        compresser(memoire+1, taille-1);
-    }
     else if (memoire[taille - 1] == -1){
-        compresser(memoire, taille-1);
+        compresser2(memoire, taille-1);
     }
     else {
-        memoire[0] = memoire[taille - 1];
-        memoire[taille - 1] =-1;
-        compresser(memoire, taille);
+        int tailleplein = tailledernierbloc(memoire, taille, memoire[taille -1]);
+
+        int indicelibre = chercherespacelibre(memoire, taille, tailleplein);
+
+        if (indicelibre != -1){
+            for (int i = 0; i< tailleplein; i++){
+                memoire[indicelibre+i] = memoire[taille- (i+1)];
+                memoire[taille- (i+1)] = -1;
+            }
+        }
+
+        compresser2(memoire, taille-tailleplein);
     }
 }
 
@@ -127,28 +154,10 @@ long long int etoile2(const char *nom_fichier) {
         }
     }
 
-    // printf("taille %d\n", tailleMemoire);
-
-    // for(int i = 0; i< tailleMemoire ;i++){
-    //     printf("%d",memoire[i]);
-    // }
-    // printf("\n");
-    // printf("\n");
-    // printf("\n");
-
     compresser2(memoire,tailleMemoire);
 
-    // for(int i = 0; i< tailleMemoire ;i++){
-    //     if (memoire[i] ==-1){break;}
-    //     printf("%d",memoire[i]);
-    // }
-    // printf("\n");
-
-    int i = 0;
-    while (true){
-        if (memoire[i] ==-1){break;}
-        retour+= memoire[i] * i;
-        i++;
+    for(int i = 0;i<100000;i++){
+        if (memoire[i] !=-1){retour+= memoire[i] * i;}
     }
 
 
