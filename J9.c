@@ -169,4 +169,4 @@ int main(){
     printf("etoile 1 : %lld\n",etoile1("entreeJ9.txt"));
     printf("etoile 2 : %lld\n",etoile2("entreeJ9.txt"));
     return 0;
-} 
+} //
