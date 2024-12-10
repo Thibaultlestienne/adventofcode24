@@ -25,7 +25,13 @@ compilerJ7:
 	gcc J7.c -o ex
 
 compilerJ8:
-	gcc J8.c -o ex -g
+	gcc J8.c -o ex
+
+compilerJ9:
+	gcc J9.c -o ex -g
+
+compilerJ10:
+	gcc J10.c -o ex -g
 
 # Règle pour nettoyer le programme
 nettoyer:
