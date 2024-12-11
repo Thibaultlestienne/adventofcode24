@@ -7,32 +7,6 @@
 
 #define TAILLEMATRICE 100
 
-int compterpositif(int matrice[TAILLEMATRICE][TAILLEMATRICE]){
-    int retour = 0;
-
-    for (int i = 0 ; i< TAILLEMATRICE;i++){
-        for (int j = 0 ; j< TAILLEMATRICE;j++){
-            if (matrice[i][j] > 0){retour++;}
-        }
-    }
-
-    return retour;
-}
-
-bool dansLimite(int matrice[TAILLEMATRICE][TAILLEMATRICE], int x, int y){
-    return x>=0 && y>=0 && x<TAILLEMATRICE && y<TAILLEMATRICE && matrice[x][y]!=-1;
-}
-
-void parcours(int matrice[TAILLEMATRICE][TAILLEMATRICE], int min, int x, int y, int carte[TAILLEMATRICE][TAILLEMATRICE]){
-    if ( dansLimite(matrice,x,y) && matrice[x][y]==min){
-        if (min ==9){carte[x][y]++;}
-        parcours(matrice, min+1, x+1,y, carte);
-        parcours(matrice, min+1, x-1,y, carte);
-        parcours(matrice, min+1, x,y+1, carte);
-        parcours(matrice, min+1, x,y-1, carte);
-    }
-}
-
 int etoile1(const char *nom_fichier) {
     FILE *fichier = fopen(nom_fichier, "r");
     
@@ -59,6 +33,13 @@ int etoile1(const char *nom_fichier) {
     }
     
     int s = 0;
+
+    for (int i = 0;i<taille;i++){
+        for (int j = 0;j<taille;j++){
+            printf("%d",matrice[i][j]);
+        }
+        printf("\n");
+    }
 
     for (int i = 0;i<TAILLEMATRICE;i++){
         for (int j = 0;j<TAILLEMATRICE;j++){
@@ -111,6 +92,13 @@ int etoile2(const char *nom_fichier) {
     
     int s = 0;
 
+    for (int i = 0;i<taille;i++){
+        for (int j = 0;j<taille;j++){
+            printf("%d",matrice[i][j]);
+        }
+        printf("\n");
+    }
+
     for (int i = 0;i<TAILLEMATRICE;i++){
         for (int j = 0;j<TAILLEMATRICE;j++){
             int carte[TAILLEMATRICE][TAILLEMATRICE] = {0};
@@ -125,7 +113,7 @@ int etoile2(const char *nom_fichier) {
 
 
 int main(){
-    printf("etoile 1 : %d\n",etoile1("entreeJ10.txt"));
-    printf("etoile 2 : %d\n",etoile2("entreeJ10.txt"));
+    printf("etoile 1 : %d\n",etoile1("entreeJ11.txt"));
+    // printf("etoile 2 : %d\n",etoile2("entreeJ11.txt"));
     return 0;
 } 
