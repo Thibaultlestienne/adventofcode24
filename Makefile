@@ -28,10 +28,14 @@ compilerJ8:
 	gcc J8.c -o ex
 
 compilerJ9:
-	gcc J9.c -o ex -g
+	gcc J9.c -o ex
 
 compilerJ10:
-	gcc J10.c -o ex -g
+	gcc J10.c -o ex
+
+compilerJ11:
+	gcc J11.c -o ex -g -fsanitize=address
+
 
 # Règle pour nettoyer le programme
 nettoyer:
