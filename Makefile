@@ -36,6 +36,9 @@ compilerJ10:
 compilerJ11:
 	gcc J11.c -o ex -g -fsanitize=address
 
+compilerJ12:
+	gcc J12.c -o ex -g 
+
 
 # Règle pour nettoyer le programme
 nettoyer:
