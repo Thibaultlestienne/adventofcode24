@@ -39,6 +39,11 @@ compilerJ11:
 compilerJ12:
 	gcc J12.c -o ex -g 
 
+compilerJ13:
+	gcc J13.c -o ex -g 
+
+compilerJ14:
+	gcc J14.c -o ex -g 
 
 # Règle pour nettoyer le programme
 nettoyer:

@@ -81,24 +81,24 @@ void parcours2(char matrice[TAILLEMATRICE][TAILLEMATRICE], char culture, int x, 
                         + (y == 0 || matrice[x][y] != matrice[x][y-1]);
 
         // coin aux bords
-        if(x == 0 && y == 0 ){*coin +=1;} // un coin compté une seul fois
-        if(x == 0 && y != 0 && matrice[x][y] != matrice[x][y-1]){*coin +=1;}// un coin compté une seul fois
+        if(x == 0 && y == 0 ){*coin +=1;} 
+        if(x == 0 && y != 0 && matrice[x][y] != matrice[x][y-1]){*coin +=1;}
         if(y == 0 && x != 0 && matrice[x][y] != matrice[x-1][y]){*coin +=1;}
 
-        if(x == 0           && matrice[x][y] != matrice[x][y+1]){*coin +=1;}// un coin compté une seul fois
+        if(x == 0           && matrice[x][y] != matrice[x][y+1]){*coin +=1;}
         if(y == 0           && matrice[x][y] != matrice[x+1][y]){*coin +=1;}
 
         // coin Type 1 (1 seul bout du coin a l interieur ) 
-        if(x != 0 && y != 0 && matrice[x][y] != matrice[x][y-1] && matrice[x][y] != matrice[x-1][y]){*coin +=1 ;}// un coin compté une seul fois
-        if(          y != 0 && matrice[x][y] != matrice[x][y-1] && matrice[x][y] != matrice[x+1][y]){*coin +=1 ;}// un coin compté une seul fois
-        if(x != 0           && matrice[x][y] != matrice[x][y+1] && matrice[x][y] != matrice[x-1][y]){*coin +=1 ;}// un coin compté une seul fois
-        if(                    matrice[x][y] != matrice[x][y+1] && matrice[x][y] != matrice[x+1][y]){*coin +=1 ;}// un coin compté une seul fois
+        if(x != 0 && y != 0 && matrice[x][y] != matrice[x][y-1] && matrice[x][y] != matrice[x-1][y]){*coin +=1 ;}
+        if(          y != 0 && matrice[x][y] != matrice[x][y-1] && matrice[x][y] != matrice[x+1][y]){*coin +=1 ;}
+        if(x != 0           && matrice[x][y] != matrice[x][y+1] && matrice[x][y] != matrice[x-1][y]){*coin +=1 ;}
+        if(                    matrice[x][y] != matrice[x][y+1] && matrice[x][y] != matrice[x+1][y]){*coin +=1 ;}
 
         // coin Type 3 (3 bout du coin a l interieur ) 
-        if(x != 0 && y != 0 && matrice[x][y] == matrice[x][y-1] && matrice[x][y] == matrice[x-1][y] && matrice[x][y] != matrice[x-1][y-1]){*coin +=1 ;}// un coin compté une seul fois
-        if(          y != 0 && matrice[x][y] == matrice[x][y-1] && matrice[x][y] == matrice[x+1][y] && matrice[x][y] != matrice[x+1][y-1]){*coin +=1 ;}// un coin compté une seul fois
-        if(x != 0           && matrice[x][y] == matrice[x][y+1] && matrice[x][y] == matrice[x-1][y] && matrice[x][y] != matrice[x-1][y+1]){*coin +=1 ;}// un coin compté une seul fois
-        if(                    matrice[x][y] == matrice[x][y+1] && matrice[x][y] == matrice[x+1][y] && matrice[x][y] != matrice[x+1][y+1]){*coin +=1 ;}// un coin compté une seul fois
+        if(x != 0 && y != 0 && matrice[x][y] == matrice[x][y-1] && matrice[x][y] == matrice[x-1][y] && matrice[x][y] != matrice[x-1][y-1]){*coin +=1 ;}
+        if(          y != 0 && matrice[x][y] == matrice[x][y-1] && matrice[x][y] == matrice[x+1][y] && matrice[x][y] != matrice[x+1][y-1]){*coin +=1 ;}
+        if(x != 0           && matrice[x][y] == matrice[x][y+1] && matrice[x][y] == matrice[x-1][y] && matrice[x][y] != matrice[x-1][y+1]){*coin +=1 ;}
+        if(                    matrice[x][y] == matrice[x][y+1] && matrice[x][y] == matrice[x+1][y] && matrice[x][y] != matrice[x+1][y+1]){*coin +=1 ;}
 
 
 
