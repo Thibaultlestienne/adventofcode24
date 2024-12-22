@@ -46,7 +46,19 @@ compilerJ14:
 	gcc J14.c -o ex
 
 compilerJ15:
-	gcc J15.c -o ex -g 
+	gcc J15.c -o ex
+	
+compilerJ16:
+	gcc J16.c -o ex -g #-fsanitize=address
+
+compilerJ17:
+	gcc J17.c -o ex -g #-fsanitize=address
+
+compilerJ18:
+	gcc J18.c -o ex -g #-fsanitize=address
+
+compilerJ19:
+	gcc J19.c -o ex -g #-fsanitize=address
 
 # Règle pour nettoyer le programme
 nettoyer:
