@@ -114,6 +114,8 @@ int djkstra(char matrice[TAILLEMATRICE][TAILLEMATRICE],int xd,int yd,int xa,int 
 
 
         if(etatactuel.x == xa && etatactuel.y == ya){
+            libererfile(f);
+            free(f);
             return etatactuel.poids;
         } 
 
@@ -142,7 +144,7 @@ int djkstra(char matrice[TAILLEMATRICE][TAILLEMATRICE],int xd,int yd,int xa,int 
         inserer(f, tournerg);
     }
 
-
+    libererfile(f);
     free(f);
     return -1;
 }
